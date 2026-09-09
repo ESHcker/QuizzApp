@@ -19,6 +19,6 @@ from django.urls import path, include
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', include('quelap.urls')), #Add url to quelap app
-    path('accounts/', include('accounts.urls')),
+    path('', include('quelap.urls')), #Add urls from quelap app
+    path("accounts/", include('accounts.urls')), #Add urls from accounts app
 ]

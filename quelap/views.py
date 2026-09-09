@@ -5,7 +5,7 @@ from django.http import HttpResponse
 
 #Create index of page
 def index(request):
-    return render(request, 'index.html')
+    return render(request, 'quelap/index.html')
 
 #Example normal page
 # def hello_with_name(request, name):

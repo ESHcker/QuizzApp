@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block header %}
+    <h1>{% block title %}Login{% endblock %}</h1>
+{% endblock%}
+
+{% block content %}
+<form method="POST" action="{% url 'login' %}">
+    {% csrf_token %}
+    {{ form.as_p }}
+    {% if form.errors %}        
+        <div style="color: red;">            
+            {{ form.non_field_errors }}            
+            {% for field in form %}                
+                {% if field.errors %}                   
+                <p>{{ field.label }}: {{ field.errors }}</p>                
+                {% endif %}            
+            {% endfor %}       
+        </div>    
+    {% endif %}
+    <button type="submit">Submit</button>
+</form>
+{% endblock %}

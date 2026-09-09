@@ -133,7 +133,11 @@ MAILERS = {
 }
 
 #Auth
-# AUTH_USER_MODEL = 'users.User'
-# LOGIN_URL = 'login'
-# LOGIN_REDIRECT_URL = 'index'
-# LOGOUT_REDIRECT_URL = 'index'
+# https://docs.djangoproject.com/en/dev/topics/auth/customizing/#substituting-a-custom-user-model
+AUTH_USER_MODEL = 'accounts.User'
+
+# https://docs.djangoproject.com/en/dev/ref/settings/#login-redirect-url
+LOGIN_REDIRECT_URL = ""
+
+# https://docs.djangoproject.com/en/dev/ref/settings/#login-redirect-url
+LOGOUT_REDIRECT_URL = ""
