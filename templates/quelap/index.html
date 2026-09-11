@@ -5,6 +5,10 @@
 {% endblock%}
 
 {% block content %}
+    
     <h2>Welcome to Quelap, a basic trivia</h2>
     <p>You need to sign up to play. GL and have fun!</p>
+    {% if user.is_authenticated %}
+        <a href="">
+    {% endif %}
 {% endblock %}

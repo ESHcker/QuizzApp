@@ -5,4 +5,5 @@ from django.contrib.auth import views as auth_views
 #Add our index to root path
 urlpatterns = [
     path('', views.index, name = 'index'),
+    path('tests/', views.tests, name = 'tests')
 ]

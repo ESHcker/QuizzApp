@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect
 from .forms import Register_form,Login_form
 from django.contrib import messages
-from django.contrib.auth import login, logout
+from django.contrib.auth import login as django_login, logout as django_logout
 
 def register(request):
     if request.method == "POST":
@@ -17,5 +17,18 @@ def register(request):
     return render(request, 'accounts/register.html', {'form' : form})
 
 def login(request):
-    login_form = Login_form
-    return render(request, 'accounts/login.html', {'form': login_form})
+    if request.method == "POST":
+        form = Login_form(request , data = request.POST)
+
+        if form.is_valid():
+            user = form.get_user()
+            django_login(request, user)
+            return redirect('index')
+    else:
+        form = Login_form()
+
+    return render(request, 'accounts/login.html', {'form': form})
+
+def logout(request):
+    django_logout(request)
+    return redirect('index')
