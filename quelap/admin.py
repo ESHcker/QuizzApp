@@ -1,13 +1,20 @@
 from django.contrib import admin
-#Prueba import
-# from .models import Prueba
+from .models import test, question, option
 
-# Example register
-# admin.site.register(Prueba)
+@admin.register(test)
+class test_admin(admin.ModelAdmin):
+    list_display = ('title', 'description', 'categories')
+    search_display = ('title', 'description', 'categories')
+    list_filter = ('title', 'description', 'categories')
 
-#Example 
-# @admin.register(Prueba)
-# class PruebaAdmin(admin.ModelAdmin):
-#     list_display = ('name', 'number')
-#     search_display = ('name',)
-#     list_filter = ('name', 'number')    
+@admin.register(question)
+class test_question(admin.ModelAdmin):
+    list_display = ('text', 'test')
+    search_display = ('text', 'test')
+    list_filter = ('text', 'test')
+
+@admin.register(option)
+class test_question(admin.ModelAdmin):
+    list_display = ('text', 'question', 'is_correct')
+    search_display = ('text', 'question', 'is_correct')
+    list_filter = ('text', 'question', 'is_correct')    
